@@ -1,2 +1,6 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div>
+  <%= image_tag @book.get_image %>
+  <p>User info：<%= image_tag 'sample-author1.jpg' %></p>
+  <p>name：<%= @book.user.name %></p>
+  <p>introduction：<%= @book.caption %></p>
+</div>
