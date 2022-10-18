@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% @books.each do |book| %>
+  <div>
+   <h1>Books</h1>
+   <%= image_tag book.get_image %>
+   <div>
+     <h4>Title</h4>
+     <%= book.title %></p>
+   </div>
+   <div>
+     <h4>Opinion</h4>
+     <%= book.body %>
+   </div>
+  </div>
+ <% end %>

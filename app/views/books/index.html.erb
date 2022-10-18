@@ -19,10 +19,16 @@
 
  <% @books.each do |book| %>
   <div>
-   <%= image_tag book.get_image %>
    <h1>Books</h1>
-     <%= book.title %>
+   <%= image_tag book.get_image %>
+   <div>
+     <h4>Title</h4>
+     <%= book.title %></p>
+   </div>
+   <div>
+     <h4>Opinion</h4>
      <%= book.body %>
+   </div>
   </div>
  <% end %>
 
