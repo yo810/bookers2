@@ -17,16 +17,19 @@
     </div>
    <% end %>
 
+ <h1>Books</h1>
+ <h4>Title</h4>
+ <h4>Opinion</h4>
  <% @books.each do |book| %>
   <div>
-   <h1>Books</h1>
+   <!--<h1>Books</h1>-->
    <%= image_tag book.get_image %>
    <div>
-     <h4>Title</h4>
+     <!--<h4>Title</h4>-->
      <%= book.title %></p>
    </div>
    <div>
-     <h4>Opinion</h4>
+     <!--<h4>Opinion</h4>-->
      <%= book.body %>
    </div>
   </div>

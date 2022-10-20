@@ -12,6 +12,7 @@
 
   <body>
     <header>
+    <h4>Bookers</h4>
     <% if user_signed_in? %>
       <li>
         <%= link_to "Home", user_path(current_user) %>
@@ -36,7 +37,7 @@
         <%= link_to "Sign up", new_user_registration_path %>
       </li>
       <li>
-        <%= link_to "sign in", new_user_session_path %>
+        <%= link_to "Log in", new_user_session_path %>
       </li>
     <% end %>
   </header>
