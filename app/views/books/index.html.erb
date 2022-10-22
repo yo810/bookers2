@@ -1,4 +1,29 @@
 <body>
+ <% if @book.errors.any? %>
+　<div id="error_explanation">
+　  <h2><%= @book.errors.count %> error prohibited this book from being saved:　</h2>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+ <% end %>
+
+ <h1>User info</h1>
+  <%= image_tag @user.get_profile_image(100,100) %>
+   <div>
+   <h4>name</h4>
+   <%= @user.name %>
+   </div>
+   <div>
+   <h4>introduction</h4>
+   <%= @user.introduction %>
+   </div>
+
+  <% if @user == current_user %>
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+  <% end %>
 
  <h1>New book</h1>
    <%= form_with model: @book do |f| %>
