@@ -1,34 +1,37 @@
-<h1>User info</h1>
-  <%= image_tag @user.get_profile_image(100,100) %>
-   <div>
-   <h4>name</h4>
-   <%= @user.name %>
-   </div>
-   <div>
-   <h4>introduction</h4>
-   <%= @user.introduction %>
-   </div>
+<!--<h1>User info</h1>-->
+<!--  <%= image_tag @user.get_profile_image(100,100) %>-->
+<!--   <div>-->
+<!--   <h4>name</h4>-->
+<!--   <%= @user.name %>-->
+<!--   </div>-->
+<!--   <div>-->
+<!--   <h4>introduction</h4>-->
+<!--   <%= @user.introduction %>-->
+<!--   </div>-->
 
-  <% if @user == current_user %>
-  <%= link_to "プロフィール編集", edit_user_path(@user) %>
-  <% end %>
+<!--  <% if @user == current_user %>-->
+<!--  <%= link_to "プロフィール編集", edit_user_path(@user) %>-->
+<!--  <% end %>-->
 
-  <h1>New book</h1>
-   <%= form_with model: @book do |f| %>
-    <div class="field">
-      <div><%= f.label :title %></div>
-      <div><%= f.text_field :title %></div>
-    </div>
+<!--  <h1>New book</h1>-->
+<!--   <%= form_with model: @book do |f| %>-->
+<!--    <div class="field">-->
+<!--      <div><%= f.label :title %></div>-->
+<!--      <div><%= f.text_field :title %></div>-->
+<!--    </div>-->
 
-    <div class="field">
-      <div><%= f.label :body %></div>
-      <div><%= f.text_area :body %></div>
-    </div>
+<!--    <div class="field">-->
+<!--      <div><%= f.label :body %></div>-->
+<!--      <div><%= f.text_area :body %></div>-->
+<!--    </div>-->
 
-    <div class="action">
-    <%= f.submit 'Create Book' %>
-    </div>
-   <% end %>
+<!--    <div class="action">-->
+<!--    <%= f.submit 'Create Book' %>-->
+<!--    </div>-->
+<!--   <% end %>-->
+
+<!--ユーザー編集、book新規投稿-->
+<%= render 'books/list', user: @user, book: @book %>
 
 <!-- ユーザーの詳細 -->
 <div>
