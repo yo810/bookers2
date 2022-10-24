@@ -84,13 +84,22 @@
       </nav>
     </header>
 
-    <main class="mb-auto">
-  　<!--<% flash.each do |key, value| %>-->
-    　<!--<%= content_tag(:div, value, class: "#{key}") %>-->
-　　<!--<% end %>-->
-  　<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    </main>
+      <main class="mb-auto">
+    　<!--<% flash.each do |key, value| %>-->
+      　<!--<%= content_tag(:div, value, class: "#{key}") %>-->
+  　　<!--<% end %>-->
+    　<p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+      </main>
+    <footer>
+      <div class="container mt-5">
+　　　　<div class="row">
+          <div class="mx-auto">
+            <P>CopyRight Infratop.inc</P>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
