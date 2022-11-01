@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
-  before_action :correct_user, only: [:edit, :update]
 
   def new
     @book = Book.new
@@ -20,19 +18,24 @@ class BooksController < ApplicationController
   end
 
   def index
+    @user = current_user
     @books = Book.all
     @book = Book.new
-    @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
     @book_new = Book.new
-    @user = current_user
+    @user = @book.user
   end
 
   def edit
     @book = Book.find(params[:id])
+    if @book.user == current_user
+        render :edit
+    else
+        redirect_to books_path
+    end
   end
 
   def update
@@ -47,8 +50,10 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to books_path
+    if @book.destroy
+      flash[:notice]="Book was successfully destroyed."
+      redirect_to books_path
+    end
   end
 
   private
@@ -57,10 +62,4 @@ class BooksController < ApplicationController
     params.require(:book).permit(:profile_image, :title, :body)
   end
 
-  def correct_user
-    book = Book.find(params[:id])
-    if current_user.id != book.user_id
-    redirect_to root_path
-    end
-  end
 end

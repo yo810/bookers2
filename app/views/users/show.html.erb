@@ -4,9 +4,13 @@
    <div class="row">
     <div class="col-md-3">
 
-      <h2>User info</h2>
-      <%= image_tag @user.get_profile_image(100,100) %>
       <table class="table">
+      <h2>User info</h2>
+      <thead>
+        <tr>
+          <%= image_tag @user.get_profile_image(100, 100) %>
+        </tr>
+      </thead>
        <tbody>
         <tr>
          <th>name</th>
@@ -20,9 +24,8 @@
       </table>
 
       <div class="row">
-       <% if @user == current_user %>
        <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block' do %>
-       <i class="fa-solid fa-user-gear"></i><% end %>
+       <i class="fas fa-user-cog"></i>
        <% end %>
       </div>
 
@@ -42,43 +45,31 @@
          <%= f.submit 'Create Book', class: "btn btn-success" %>
          </div>
       <% end %>
-    </div>
+     </div>
 
- <!--ユーザー編集、book新規投稿-->
- <!--<%= render 'books/list', user: @user, book: @book %>-->
-
- <div class="col-md-8 offset-md-1">
-   <h2>Books</h2>
-   <table class="table table-hover table-inverse">
-      <thead>
-       <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
-        <th colspan="3"></th>
-       </tr>
-      </thead>
-      <tbody>
-       <tr>
-        <td>
+      <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+         <thead>
+          <tr>
+           <th></th>
+           <th>Title</th>
+           <th>Opinion</th>
+           <th colspan="3"></th>
+          </tr>
+         </thead>
+         <tbody>
           <% @books.each do |book| %>
-        <!--<h1>Books</h1>-->
-        </td>
-        <td>
-          <%= image_tag book.get_image %>
-          <!--<h4>Title</h4>-->
-        </td>
-        <td>
-          <%= book.title %>
-          <!--<h4>Opinion</h4>-->
-        </td>
-        <td>
-          <%= book.body %>
-        </td>
-       </tr>
+          <tr>
+           <td><%= link_to user_path(@user) do %>
+             <%= image_tag @user.get_profile_image(100, 100) %>
+           <% end %></td>
+           <td><%= link_to book.title, book_path(book.id) %></td>
+           <td><%= book.body %></td>
+          </tr>
           <% end %>
-      </tbody>
-   </table>
- </div>
-
+         </tbody>
+      </table>
+   </div>
+  </div>
 </body>
